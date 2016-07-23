@@ -1,0 +1,25 @@
+<h1 id="vocabspec-json-data-conversion-system">VocabSpec: JSON Data Conversion System</h1>
+<p>Early version! Lots of ideas not implemented in this particular snapshot.</p>
+<p>See https://decentralyze.com/2014/06/30/growjson/ for one version of the vision.</p>
+<p>Provides:</p>
+<ul>
+<li>Conversion between JavaScript (aka JSON) objects written using different vocabularies, when the vocabularies are declared using our defineProperty function.</li>
+</ul>
+<p>Does not yet provide:</p>
+<ul>
+<li>type checking</li>
+<li>conversion rules</li>
+<li>reference modes</li>
+<li>nice looking vocab documentation</li>
+<li>hyperlinks in definitions</li>
+</ul>
+<pre class="js"><code>const vocabspec = require(&#39;vocabspec&#39;)
+
+const v1 = vocabspec.create()
+v1.defineProperty(&#39;age&#39;, &#39;the number of years since a thing was created, a number, using years as 365.24 * 86400 seconds&#39;)
+
+const v2 = vocabspec.create()
+v2.defineProperty(&#39;yearsOld&#39;, &#39;the number of years since a thing was created, a number, using years as 365.24 * 86400 seconds&#39;)
+
+console.log(v1.convert({ age: 20 }, v2) // { yearsOld: 20 }</code></pre>
+<p>During convert(), properties that have no matching definition on v2 are silently dropped, unless v2.onauto is truthy, in which case the necessary definitions from v1 are copied over. If v2.onauto is a function, it's called any time that happens, being passed a structured version of the definition being added.</p>

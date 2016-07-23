@@ -1,0 +1,26 @@
+{
+  "name": "vocabspec",
+  "version": "0.0.1",
+  "description": "A tool for converting JSON read/written by different systems",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandhawke/vocabspec.git"
+  },
+  "author": "Sandro Hawke <sandro@hawke.org>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sandhawke/vocabspec/issues"
+  },
+  "homepage": "https://github.com/sandhawke/vocabspec#readme",
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "tape": "^4.6.0"
+  }
+}
